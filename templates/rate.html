@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Rate</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/rate.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>Rate Our Service</h1>
+    <nav><a href="{{ url_for('index') }}">Home</a></nav>
+  </header>
+
+  <main class="rate-main">
+    <p>Thanks for using shivray car rent. Leave your rating below.</p>
+
+    <!-- ✅ SUCCESS MESSAGE -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert {{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Form -->
+    <form action="/rate" method="POST">
+      <label>Rating (1-5)</label>
+      <input type="number" name="rating" min="1" max="5" required>
+
+      <label>Feedback</label>
+      <textarea name="feedback" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </main>
+</body>
+</html>

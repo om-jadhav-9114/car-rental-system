@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHIVARAY-CAR RENT</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+  <header class="site-header">
+    <h1>shivaray car — Rental / Booking</h1>
+
+    <nav>
+      {% if session.get("user") %}
+        <a href="{{ url_for('book') }}">Book</a>
+      {% else %}
+        <a href="{{ url_for('register') }}">Book</a>
+      {% endif %}
+      
+      <a href="{{ url_for('register') }}">register</a>
+      <a href="{{ url_for('admin_login') }}">Admin</a>
+      <a href="{{ url_for('contact') }}">Contact Us</a>
+      <a href="{{ url_for('rate') }}">Rate</a>
+    </nav>
+  </header>
+
+  <main class="home-main">
+    <section class="hero">
+      <h2>Welcome!</h2>
+      <p><b>Drive Your Way, Anytime, Anywhere With .....SHIVRAY CAR RENTS.....</b></p>
+
+      {% if session.get("user") %}
+        <a class="cta" href="{{ url_for('book') }}">Go to Booking</a>
+      {% else %}
+        <a class="cta" href="{{ url_for('register') }}">Go to Booking</a>
+      {% endif %}
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

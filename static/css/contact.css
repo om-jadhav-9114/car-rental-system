@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+}
+
+/* Main box */
+.contact-box {
+    width: 800px;
+    height: 500px;
+    margin: 90px auto;
+    background: linear-gradient(135deg, #134e5e, #71b280);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    color: #ffffff;
+}
+
+/* Title */
+.contact-box h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contact-box hr {
+    border: none;
+    height: 5px;
+    background: rgba(255,255,255,0.4);
+    margin-bottom: 25px;
+}
+
+/* Admin card */
+.admin-card {
+    width: 550px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-left: 130px;
+}
+
+/* Admin image */
+.admin-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #000000;
+    margin-right: 15px;
+}
+
+/* Admin text */
+.admin-details p {
+    margin: 11px 0;
+    font-size: 22px;
+}
+
+.admin-details strong {
+    color: #ffeaa7;
+}
+
+/* Mobile responsive */
+@media (max-width: 520px) {
+    .contact-box {
+        width: 90%;
+    }
+}

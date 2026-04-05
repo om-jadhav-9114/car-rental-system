@@ -1,0 +1,181 @@
+/* ===============================
+   GLOBAL THEME (ALL PAGES)
+================================ */
+
+body {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #0b0f1a, #12162a, #1a1f3a, #0b0f1a);
+  background-size: 400% 400%;
+  animation: gradientMove 14s ease infinite;
+  color: #eaeaea;
+  line-height: 1.7;
+}
+
+/* ===============================
+   HEADER (MATCH ALL PAGES)
+================================ */
+
+.site-header {
+  background: rgba(10, 12, 30, 0.92);
+  color: #fff;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.site-header h2 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: #00f5d4;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 12px rgba(0,245,212,0.8);
+}
+
+.site-header nav {
+  margin-top: 12px;
+}
+
+.site-header nav a {
+  color: #9ef01a;
+  margin: 0 18px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.site-header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #ff4ecd;
+  transition: width 0.3s ease;
+}
+
+.site-header nav a:hover {
+  color: #ff4ecd;
+  text-shadow: 0 0 10px #ff4ecd;
+}
+
+.site-header nav a:hover::after {
+  width: 100%;
+}
+
+/* ===============================
+   HOME MAIN
+================================ */
+
+.home-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  padding: 40px 20px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* ===============================
+   HERO CARD (USED EVERYWHERE)
+================================ */
+
+.hero {
+  max-width: 780px;
+  text-align: center;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  padding: 55px 45px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow:
+    0 0 35px rgba(0,255,200,0.25),
+    inset 0 0 20px rgba(255,255,255,0.04);
+  transition: all 0.35s ease;
+}
+
+.hero:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 45px rgba(255,78,205,0.45),
+    inset 0 0 25px rgba(255,255,255,0.06);
+}
+
+.hero h1 {
+  font-size: 2.7rem;
+  color: #00f5d4;
+  margin-bottom: 16px;
+  text-shadow: 0 0 15px rgba(0,245,212,0.8);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #d6d6d6;
+}
+
+/* ===============================
+   NEON BUTTON (COMMON)
+================================ */
+
+.cta,
+.btn,
+button {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 30px;
+  background: linear-gradient(90deg, #ff4ecd, #6c63ff);
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 18px rgba(255,78,205,0.45);
+}
+
+.cta:hover,
+.btn:hover,
+button:hover {
+  background: linear-gradient(90deg, #6c63ff, #ff4ecd);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 0 28px rgba(108,99,255,0.65);
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+.site-footer {
+  text-align: center;
+  padding: 22px;
+  background: rgba(10,12,30,0.95);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

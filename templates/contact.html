@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+</head>
+<body>
+
+   <div class="contact-box">
+    <h2>Contact Us</h2>
+    <hr>
+
+    <!-- Admin 1 -->
+    <div class="admin-card">
+        <img src="{{ url_for('static', filename='images/onkar.jpg') }}" alt="Admin Photo">
+        <div class="admin-details">
+            <p><strong>Name:</strong> Onkar Jadhav</p>
+            <p><strong>Email:</strong> omijadhav9114@gmail.com</p>
+            <p><strong>Mobile:</strong> +91 9172784553</p>
+        </div>
+    </div>
+
+    <!-- Admin 2 -->
+    <div class="admin-card">
+        <img src="{{ url_for('static', filename='images/sunit.jpg') }}" alt="Admin Photo">
+        <div class="admin-details">
+            <p><strong>Name:</strong> Sunit Suryawanshi</p>
+            <p><strong>Email:</strong> sunitsuryawanshi08@gmail.com</p>
+            <p><strong>Mobile:</strong> +91 98765 43210</p>
+        </div>
+    </div>
+</div>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Booking</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}"/>
+
+  <style>
+    /* Car Image Preview Fix */
+    .car-preview {
+      text-align: center;
+      margin: 15px 0;
+    }
+    .car-preview img {
+  width: 400px;
+  height: auto;
+  display: block;
+  padding: 5px;
+  margin: auto;
+
+  border: 3px solid #000000;   /* ✅ BORDER ADDED */
+  border-radius: 16px;
+
+  background: #ffffff;        /* border clear दिसण्यासाठी */
+  object-fit: contain;
+  box-shadow: 0 6px 16px rgb(0, 0, 0);
+}
+
+
+    /* Buttons सुधारले */
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .buttons button, 
+    .buttons a {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      background:  #1e3c72;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .buttons button:hover, 
+    .buttons a:hover {
+      background: #2a5298;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Car Booking Form</h1>
+    <nav  style="color: black;">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="/my_bookings">My Bookings</a>
+      <a href="{{ url_for('admin_login') }}">Admin</a>
+    </nav>
+  </header>
+
+  <main class="booking-container">
+    <form id="bookingForm">
+      <!-- User Details -->
+      <label>Name :</label>
+      <input name="name" required>
+
+      <label>Email :</label>
+      <input type="email" name="email" required>
+
+      <label>Phone :</label>
+      <input name="phone" required>
+
+      <!-- Car Select -->
+      <label>Car Model :</label>
+      <select name="car_model" id="carSelect">
+       
+        <option value="swift" data-price="2000">Swift - ₹2000/day</option>
+        <option value="innova_crysta" data-price="2500">Innova Crysta - ₹2500/day</option>
+        <option value="hyundai_creta" data-price="2200">Hyundai Creta - ₹2200/day</option>
+        <option value="baleno" data-price="2000">Maruti Baleno - ₹2000/day</option>
+        <option value="seltos" data-price="2300">Kia Seltos - ₹2300/day</option>
+        <option value="fortuner" data-price="3500">Toyota Fortuner - ₹3500/day</option>
+        <option value="thar" data-price="2200">Mahindra Thar - ₹2200/day</option>
+        <option value="scorpio_n" data-price="2100">Scorpio N - ₹2100/day</option>
+      </select>
+
+      <!-- Car Image Preview -->
+      <div class="car-preview">
+        <img id="carImage" src="{{ url_for('static', filename='images/default.png') }}" alt="Car Image">
+      </div>
+
+      <!-- Dates -->
+      <label>Start Date :</label>
+      <input type="date" name="start_date" required>
+
+      <label>End Date :</label>
+      <input type="date" name="end_date" required>
+
+      <!-- Price -->
+      <label>Price :</label>
+      <input id="priceField" name="price" value="₹2300/day" readonly>
+      <!--permanant address-->
+      <label>Address :</label>
+<input 
+  type="text" class="address" value="Jayhind chouk , near Sarthak plaza, 416 311 ,savlaj, Sangli, Maharashtra" readonly >
+
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button type="button" id="previewBtn">Preview</button>
+        <button type="submit">Save Booking</button>
+        <a href="{{ url_for('pay') }}">Pay</a>
+      </div>
+    </form>
+
+    <!-- Preview -->
+    <section id="preview"></section>
+  </main>
+
+  <script>
+    // JS: Car Image + Price update
+    const carSelect = document.getElementById("carSelect");
+    const carImage = document.getElementById("carImage");
+    const priceField = document.getElementById("priceField");
+
+    const carImages = {
+      
+      "swift": "{{ url_for('static', filename='images/swift.jpg') }}",
+      "innova_crysta": "{{ url_for('static', filename='images/innova_crysta.jpg') }}",
+      "hyundai_creta": "{{ url_for('static', filename='images/hyundai_creta.jpg') }}",
+      "baleno": "{{ url_for('static', filename='images/baleno.jpg') }}",
+      "seltos": "{{ url_for('static', filename='images/seltos.jpg') }}",
+      "fortuner": "{{ url_for('static', filename='images/fortuner.jpg') }}",
+      "thar": "{{ url_for('static', filename='images/thar.jpg') }}",
+      "scorpio_n": "{{ url_for('static', filename='images/scorpio_n.jpg') }}"
+    };
+
+    carSelect.addEventListener("change", function() {
+      const selectedCar = this.value;
+      const selectedOption = this.options[this.selectedIndex];
+      const carPrice = selectedOption.dataset.price;
+
+      // update image
+      carImage.src = carImages[selectedCar] || "{{ url_for('static', filename='images/default.png') }}";
+
+      // update price
+      priceField.value = `₹${carPrice}/day`;
+    });
+  </script>
+
+  <script src="{{ url_for('static', filename='js/book.js') }}"></script>
+</body>
+</html>

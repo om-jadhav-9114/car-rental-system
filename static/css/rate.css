@@ -1,0 +1,123 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Page background */
+body {
+  background: linear-gradient(135deg, #33415b, #78a9ff);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #ffffff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  color: #1e3c72;
+  font-size: 24px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #1e3c72;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+header nav a:hover {
+  background: #1e3c72;
+  color: #fff;
+}
+
+/* Main container */
+.rate-main {
+  max-width: 450px;
+  background: #ffffff;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Paragraph */
+.rate-main p {
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #555;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+/* Labels */
+form label {
+  font-weight: 600;
+  color: #0f719b;
+}
+
+/* Inputs and textarea */
+form input,
+form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+form textarea {
+  resize: none;
+  height: 90px;
+}
+
+/* Focus effect */
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #1e3c72;
+  box-shadow: 0 0 5px rgba(30, 60, 114, 0.4);
+}
+
+/* Submit button */
+form button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #03768a;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Button hover */
+form button:hover {
+  background: #16305d;
+  transform: translateY(-2px);
+}
+
+/* Button active */
+form button:active {
+  transform: translateY(0);
+}

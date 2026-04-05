@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Bookings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/my_bookings.css') }}">
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #222;
+            color: #fff;
+        }
+
+        .pending { color: blue; font-weight: bold; }
+        .confirmed { color: green; font-weight: bold; }
+        .rejected { color: red; font-weight: bold; }
+    </style>
+</head>
+
+<body>
+<main class="login-wrap">
+    <h1>My Car Bookings</h1>
+
+    {% if bookings|length == 0 %}
+        <p>No bookings found.</p>
+    {% else %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Car</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.car_model }}</td>
+                <td>{{ booking.start_date }}</td>
+                <td>{{ booking.end_date }}</td>
+                <td>{{ booking.price }}</td>
+               
+
+                <td>
+                    {% if booking.status == 'Pending' %}
+                        <span class="pending">Pending</span>
+                    {% elif booking.status == 'Confirmed' %}
+                        <span class="confirmed">Confirmed</span>
+                    {% elif booking.status == 'Rejected' %}
+                        <span class="rejected">Rejected</span>
+                    {% else %}
+                        {{ booking.status }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endif %}
+</main>
+</body>
+</html>
